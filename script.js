@@ -15,3 +15,13 @@ function makePixels(a) {
         })
     }
 }
+
+const makeGrid = document.querySelector('#makeGrid');
+
+makeGrid.addEventListener('click', () => {
+    let gridSize = prompt("Choose a grid size between 1 and 100", "16")
+    if (gridSize <= 100 && gridSize >= 1) {
+        makePixels(gridSize);
+    } else { alert("Choose a valid number");
+    };
+});
