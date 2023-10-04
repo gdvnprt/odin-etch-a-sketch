@@ -1,12 +1,25 @@
-.container {
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    margin: 10px;
+}
+
+#container {
     display: flex;
     flex-wrap: wrap;
-    flex: auto;
+    align-content: stretch;
+    justify-content: stretch;
+    padding: 0;
     height: 800px;
     width: 800px;
     outline: 3px solid black;
 }
 
 .etchPixel {
-    outline: 2px solid blue;
+    outline: 1px solid blue;
 }
