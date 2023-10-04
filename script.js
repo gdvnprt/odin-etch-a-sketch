@@ -16,9 +16,16 @@ function makePixels(a) {
     }
 }
 
+function removeAllPixels() {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    };
+};
+
 const makeGrid = document.querySelector('#makeGrid');
 
 makeGrid.addEventListener('click', () => {
+    removeAllPixels()
     let gridSize = prompt("Choose a grid size between 1 and 100", "16")
     if (gridSize <= 100 && gridSize >= 1) {
         makePixels(gridSize);
