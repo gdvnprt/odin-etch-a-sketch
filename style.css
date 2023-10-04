@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex: auto;
+    height: 800px;
+    width: 800px;
+    outline: 3px solid black;
+}
+
+.etchPixel {
+    outline: 2px solid blue;
+}
