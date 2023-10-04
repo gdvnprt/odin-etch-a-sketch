@@ -32,3 +32,12 @@ makeGrid.addEventListener('click', () => {
     } else { alert("Choose a valid number");
     };
 });
+
+const reset = document.querySelector('#reset');
+
+reset.addEventListener('click', () => {
+    let res = document.querySelectorAll('.etchPixel');
+    for (let i = 0; i < res.length; i++) {
+        res[i].style.backgroundColor = "white";
+    };
+    });
