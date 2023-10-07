@@ -8,10 +8,11 @@ function makePixels(a) {
         etchPixel.classList.add('etchPixel');
         etchPixel.style.width = dimensions;
         etchPixel.style.height = dimensions;
+        etchPixel.style.backgroundColor = "rgba(0, 0, 0, 0)";
         container.appendChild(etchPixel);
 
         etchPixel.addEventListener('mouseover', () => {
-            etchPixel.style.backgroundColor = "black";
+            etchPixel.style.backgroundColor = "rgba(0, 0, 0, 1)";
         });
     };
 };
@@ -82,3 +83,23 @@ drawRainbow.addEventListener('click', () => {
         });
     };
 });
+
+drawShader.addEventListener('click', () => {
+    let shd = document.querySelectorAll('.etchPixel');
+    for (let i = 0; i < shd.length; i++) {
+        shd[i].addEventListener('mouseover', () => {
+            let pxColor = shd[i].style.backgroundColor;
+            let pxAlpha = pxColor.slice(-3, -1);
+            let newAlpha
+            if (((pxAlpha * 10 + 1) / 10) < 1 && pxAlpha > 0) {
+              newAlpha = (pxAlpha * 10 + 1) / 10;
+            } else if (pxAlpha === " 0") {
+              newAlpha = .1
+            } else {
+                newAlpha = " 1";
+             };
+            let newShade = pxColor.replace(pxAlpha, newAlpha);
+            shd[i].style.backgroundColor = newShade;
+            });
+        };
+    });
