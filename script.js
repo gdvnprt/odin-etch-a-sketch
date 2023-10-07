@@ -16,6 +16,8 @@ function makePixels(a) {
     };
 };
 
+makePixels(16);
+
 function removeAllPixels() {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
@@ -38,7 +40,7 @@ const reset = document.querySelector('#reset');
 reset.addEventListener('click', () => {
     let res = document.querySelectorAll('.etchPixel');
     for (let i = 0; i < res.length; i++) {
-        res[i].style.backgroundColor = "white";
+        res[i].style.backgroundColor = "rgba(0, 0, 0, 0)";
     };
 });
 
@@ -50,7 +52,7 @@ drawBlack.addEventListener('click', () => {
     let blk = document.querySelectorAll('.etchPixel');
     for (let i = 0; i < blk.length; i++) {
         blk[i].addEventListener('mouseover', () => {
-            blk[i].style.backgroundColor = "black";
+            blk[i].style.backgroundColor = "rgba(0, 0, 0, 1)";
         });
     };
 });
@@ -59,11 +61,16 @@ function randomRgb() {
     return Math.floor(Math.random() * 255);
 };
 
+function randomAlpha() {
+    return Math.round((Math.random() * 9) + 1 ) / 10
+}
+
 function randomColor() {
     let r = randomRgb();
     let g = randomRgb();
     let b = randomRgb();
-    return "rgb(" + r + ", " + g + ", " + b + ")";
+    let a = randomAlpha();
+    return "rgba(" + r + ", " + g + ", " + b + ", " + a + ")";
 };
 
 drawRainbow.addEventListener('click', () => {
