@@ -12,9 +12,9 @@ function makePixels(a) {
 
         etchPixel.addEventListener('mouseover', () => {
             etchPixel.style.backgroundColor = "black";
-        })
-    }
-}
+        });
+    };
+};
 
 function removeAllPixels() {
     while (container.firstChild) {
@@ -40,4 +40,38 @@ reset.addEventListener('click', () => {
     for (let i = 0; i < res.length; i++) {
         res[i].style.backgroundColor = "white";
     };
-    });
+});
+
+const drawBlack = document.querySelector('#drawBlack');
+const drawRainbow = document.querySelector('#drawRainbow');
+const drawShader = document.querySelector('#drawShader');
+
+drawBlack.addEventListener('click', () => {
+    let blk = document.querySelectorAll('.etchPixel');
+    for (let i = 0; i < blk.length; i++) {
+        blk[i].addEventListener('mouseover', () => {
+            blk[i].style.backgroundColor = "black";
+        });
+    };
+});
+
+function randomRgb() {
+    return Math.floor(Math.random() * 255);
+};
+
+function randomColor() {
+    let r = randomRgb();
+    let g = randomRgb();
+    let b = randomRgb();
+    return "rgb(" + r + ", " + g + ", " + b + ")";
+};
+
+drawRainbow.addEventListener('click', () => {
+    let rnb = document.querySelectorAll('.etchPixel');
+    for (let i = 0; i < rnb.length; i++) {
+        let random = randomColor()
+        rnb[i].addEventListener('mouseover', () => {
+            rnb[i].style.backgroundColor = random;
+        });
+    };
+});
